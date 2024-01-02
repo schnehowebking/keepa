@@ -5,7 +5,7 @@ from keepa.interface import keepa_minutes_to_time, parse_csv
 
 
 def plot_product(
-    product, keys=["AMAZON", "USED", "COUNT_USED", "SALES"], price_limit=1000, show=True
+    product, keys=None, price_limit=1000, show=True
 ):
     """Plot a product using matplotlib.
 
@@ -25,6 +25,7 @@ def plot_product(
         Show plot.
 
     """
+    keys = ["AMAZON", "USED", "COUNT_USED", "SALES"] if keys is None else keys
     try:
         import matplotlib.pyplot as plt
     except Exception:  # pragma: no cover
